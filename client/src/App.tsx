@@ -10,7 +10,7 @@ const socket = io("http://localhost:3000");
 function App() {
     const [username, setUsername] = useState("");
     const [room, setRoom] = useState("");
-    const [showChat, setShowChat] = useState(false)
+    const [showChat, setShowChat] = useState<boolean>(false)
 
     const joinRoom = (e: SyntheticEvent) => {
         e.preventDefault()

@@ -7,7 +7,7 @@ interface ChatProps {
     socket: Socket;
     username: string
     room: string
-    setShowChat?: React.Dispatch<React.SetStateAction<boolean>>
+    setShowChat: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface MessageChat {
@@ -17,7 +17,7 @@ interface MessageChat {
     time: string
 }
 
-function Chat({ socket, username, room }: ChatProps) {
+function Chat({ socket, username, room, setShowChat }: ChatProps) {
     const [currentMessage, setCurrentMessage] = useState("")
     const [listMessage, setListMessage] = useState<MessageChat[]>([]) 
 
@@ -33,7 +33,7 @@ function Chat({ socket, username, room }: ChatProps) {
             }
             socket.emit("sendMessage", messageData)
             setListMessage((list) => [...list, messageData]) 
-
+            setCurrentMessage("")
         }
     }
     
@@ -47,11 +47,11 @@ function Chat({ socket, username, room }: ChatProps) {
 
     return (
         <div className='card w-96 bg-base-100 shadow-xl card-normal overflow-hidden'>
-            {/* <button onClick={()=>setShowChat(false)}>BACK</button> */}
-            <div className='bg-slate-800'>
-                <h1 className='text-white p-3 font-semibold'>Room {room}</h1>
+            <div className='bg-slate-800 flex justify-between px-4 py-2 items-center'>
+                <h1 className='text-white font-semibold'>Room {room}</h1>
+                <button onClick={()=>setShowChat(false)} className='btn btn-xs'>BACK</button>
             </div>
-            <div className='h-96 flex flex-col'>
+            <div className='h-96 flex flex-col p-3'>
                 {listMessage && listMessage.map((msg, index)=>{
                     if (msg.author === username) {
                         return <Message author={msg.author} message={msg.message} username={username} time={msg.time} room={msg.room} key={index}/>

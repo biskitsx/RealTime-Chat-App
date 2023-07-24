@@ -7,17 +7,16 @@ interface MessageChat {
     username: string
 }
 
-function Message({room, author, message, time, username}: MessageChat ) {
+function Message({ author, message, time, username}: MessageChat ) {
     const position = username === author ? "chat chat-end" : "chat chat-start"
   return (
     <div className={position}>
-        <div className="chat-header">
+        <div className="chat-header ">
             {author}
-            <time className="text-xs opacity-50">{time}</time>
+            <time className="text-xs opacity-50 ml-1">{time}</time>
         </div>
         <div className="chat-bubble">{message}</div>
         
-        {/* <div className="chat-footer opacity-50">{time}</div> */}
     </div>
   )
 }
