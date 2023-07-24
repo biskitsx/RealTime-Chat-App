@@ -24,7 +24,6 @@ function App() {
         <div className="h-screen place-items-center grid bg-zinc-100">
             <Nav/>
             {!showChat ? (
-
                 <form className="card w-96 bg-base-100 shadow-xl card-normal">
                     <figure>
                         <img
