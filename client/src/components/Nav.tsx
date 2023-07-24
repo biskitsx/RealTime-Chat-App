@@ -16,7 +16,7 @@ function Nav() {
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost normal-case text-xl">Real Time Chat Web</a>
+    <a className="btn btn-ghost normal-case text-xl">Real Time Web Chat 🤖</a>
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">

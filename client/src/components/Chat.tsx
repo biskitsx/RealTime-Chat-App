@@ -46,10 +46,10 @@ function Chat({ socket, username, room }: ChatProps) {
 
 
     return (
-        <div className='card w-96 bg-base-100 shadow-xl card-normal p-3'>
+        <div className='card w-96 bg-base-100 shadow-xl card-normal overflow-hidden'>
             {/* <button onClick={()=>setShowChat(false)}>BACK</button> */}
-            <div className='bg-zinc-900'>
-                <h1 className='text-white'> Room {room}</h1>
+            <div className='bg-slate-800'>
+                <h1 className='text-white p-3 font-semibold'>Room {room}</h1>
             </div>
             <div className='h-96 flex flex-col'>
                 {listMessage && listMessage.map((msg, index)=>{
