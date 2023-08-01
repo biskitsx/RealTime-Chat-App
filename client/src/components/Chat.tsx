@@ -51,7 +51,7 @@ function Chat({ socket, username, room, setShowChat }: ChatProps) {
                 <h1 className='text-white font-semibold'>Room {room}</h1>
                 <button onClick={()=>setShowChat(false)} className='btn btn-xs'>BACK</button>
             </div>
-            <div className='h-96 flex flex-col p-3'>
+            <div className='h-96 flex flex-col p-3 overflow-auto'>
                 {listMessage && listMessage.map((msg, index)=>{
                     if (msg.author === username) {
                         return <Message author={msg.author} message={msg.message} username={username} time={msg.time} room={msg.room} key={index}/>
